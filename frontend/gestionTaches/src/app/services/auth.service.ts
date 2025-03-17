@@ -7,7 +7,7 @@ import { tap, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://127.0.0.1:8000/api/auth/user/';
+  private apiUrl = 'http://127.0.0.1:8000/api/login/user/';
   private refreshUrl = 'http://127.0.0.1:8000/api/auth/token/refresh/'; // Correction de l'URL
 
   constructor(private http: HttpClient) {}
