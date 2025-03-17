@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Task, TaskHistory
+from .models import Task
 from projects.serializers import ProjectSerializer, UserBasicSerializer
 
 class TaskSerializer(serializers.ModelSerializer):
@@ -27,10 +27,4 @@ class TaskUpdateSerializer(serializers.ModelSerializer):
         model = Task
         fields = ['title', 'description', 'deadline', 'status', 'assigned_to']
 
-class TaskHistorySerializer(serializers.ModelSerializer):
-    changed_by = UserBasicSerializer(read_only=True)
 
-    class Meta:
-        model = TaskHistory
-        fields = ['id', 'task', 'previous_status', 'new_status', 'changed_by', 'changed_at']
-        read_only_fields = ['id', 'task', 'previous_status', 'new_status', 'changed_by', 'changed_at']

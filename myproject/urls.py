@@ -22,15 +22,16 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework.routers import DefaultRouter
 from users.views import UserRegistrationView, UserDetailView
 from projects.views import ProjectViewSet
-from tasks.views import TaskViewSet, TaskHistoryViewSet
+from tasks.views import TaskViewSet
 from stats.views import PerformanceViewSet
+
 
 # Router pour les ViewSets
 router = DefaultRouter()
 router.register(r'projects', ProjectViewSet, basename='project')
 router.register(r'tasks', TaskViewSet, basename='task')
-router.register(r'task-history', TaskHistoryViewSet, basename='task-history')
 router.register(r'stats/performance', PerformanceViewSet, basename='performance')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,6 +41,7 @@ urlpatterns = [
     path('api/auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/auth/user/', UserDetailView.as_view(), name='user_details'),
+    
     
     # API routes via router
     path('api/', include(router.urls)),

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Task, TaskHistory
+from .models import Task
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
@@ -8,8 +8,3 @@ class TaskAdmin(admin.ModelAdmin):
     search_fields = ('title', 'description')
     date_hierarchy = 'created_at'
 
-@admin.register(TaskHistory)
-class TaskHistoryAdmin(admin.ModelAdmin):
-    list_display = ('task', 'previous_status', 'new_status', 'changed_by', 'changed_at')
-    list_filter = ('previous_status', 'new_status', 'changed_at')
-    date_hierarchy = 'changed_at'

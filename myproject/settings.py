@@ -51,7 +51,10 @@ INSTALLED_APPS = [
      'tasks',
     'stats',
       'rest_framework',
-    'corsheaders',
+      'rest_framework.authtoken',
+       'rest_framework_simplejwt',
+      'corsheaders',
+
      
 ]
 
@@ -72,8 +75,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'myproject.urls'
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:4200',  
-    'https://ton-site-angular.com',  
+      "http://localhost:4200", 
+    "http://127.0.0.1:4200", 
 ]
 
 REST_FRAMEWORK = {
@@ -143,20 +146,8 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+
+AUTH_PASSWORD_VALIDATORS = []
 
 
 # Internationalization
